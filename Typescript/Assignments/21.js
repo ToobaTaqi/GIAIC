@@ -1,5 +1,6 @@
+"use strict";
 // They think of something you could store in a TypeScript Object. Write a program that creates Objects containing these items.
-var List = {
+const List = {
     Mountain: "Mount Everest",
     River: "Nile River",
     Country: "Japan",

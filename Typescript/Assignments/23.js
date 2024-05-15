@@ -1,5 +1,6 @@
+"use strict";
 // Conditional Tests: Write a series of conditional tests. Print a statement describing each test and your prediction for the results of each test
-var flower = "sunflower";
+let flower = "sunflower";
 console.log(flower == "sunflower" ? "I predected True" : "I predected False");
 console.log(flower == "sunflower");
 console.log(flower === "daisy" ? "I predected True" : "I predected False");
