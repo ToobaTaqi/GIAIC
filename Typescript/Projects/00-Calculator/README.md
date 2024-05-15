@@ -1,74 +1,36 @@
-import inquirer from "inquirer";
+# Simple Calculator
 
-console.log("This is a simple calculator:");
+This is a simple command-line calculator built with Node.js and the Inquirer and Chalk modules.
 
-async function calculator() {
-  let n = await inquirer.prompt([
-    {
-      type: "number",
-      name: "FirstNum",
-      message: "Enter First Number",
-      validate: (ans) => {
-        if (!ans) {
-          return "Please enter a number";
-        }
-        return true;
-      },
-    },
-    {
-      type: "list",
-      name: "operator",
-      message: "Select the operation you want to perform",
-      choices: ["+", "-", "x", "/"],
-      default: "+",
-    },
-    {
-      type: "number",
-      name: "SecondNum",
-      message: "Enter Second Number",
-      validate: (ans) => {
-        if (!ans) {
-          return "Please enter a number";
-        }
-        return true;
-      },
-    },
-  ]);
+## Features
 
-  let FN: number = n.FirstNum;
-  let SN: number = n.SecondNum;
-  let result: number;
+- Addition
+- Subtraction
+- Multiplication
+- Division
 
-  const calculation = () => {
-    if (n.operator === "+") {
-      result = FN + SN;
-    } else if (n.operator === "-") {
-      result = FN - SN;
-    } else if (n.operator === "x") {
-      result = FN * SN;
-    } else if (n.operator === "/") {
-      result = FN / SN;
-    } else {
-      return "Error";
-    }
-    return result;
-  };
+## Getting Started
 
-  console.log("Result:", calculation());
+To use this calculator, follow these steps:
 
-  let options = await inquirer.prompt({
-    type: "list",
-    name: "option",
-    message: "Do you want another calculation?",
-    choices: ["yes", "no"],
-    default: "no",
-  });
+1. Clone this repository to your local machine.
+2. Navigate to the project directory in your terminal.
+3. Install dependencies by running `npm install`.
+4. Start the calculator by running `tsc && node index.js`.
+5. Follow the prompts to perform calculations.
 
-  if (options.option === "yes") {
-    await calculator(); // Call calculator again for another calculation
-  } else {
-    console.log("Calculations ended.");
-  }
-}
+## Usage
 
-calculator(); // Start the calculator
+Once the calculator is running, you will be prompted to enter the first number, select the operation you want to perform, and enter the second number. After entering the second number, the calculator will display the result of the operation.
+
+You can perform multiple calculations in a row. After each calculation, you will be asked if you want to perform another calculation. If you choose to continue, the process will repeat. If you choose to stop, the calculator will exit.
+
+## Dependencies
+
+- Node.js
+- Inquirer
+- Chalk
+
+ ## Note
+ 
+ Please dont copy this "as it is" for your own assignments submissions. 
