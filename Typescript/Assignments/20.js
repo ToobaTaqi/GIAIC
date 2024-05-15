@@ -1,5 +1,6 @@
+"use strict";
 // Think of something you could store in a array. For example, you could make a list of mountains, rivers, countries, cities, languages, or anything else you’d like. Write a program that creates a list containing these items.
-var List = [
+const List = [
     "Mount Everest",
     "Nile River",
     "Japan",
@@ -12,6 +13,6 @@ var List = [
     "Pizza",
     "Beach",
 ];
-for (var i = 0; i < List.length; i++) {
-    console.log("".concat(i + 1, " -> ").concat(List[i]));
+for (let i = 0; i < List.length; i++) {
+    console.log(`${i + 1} -> ${List[i]}`);
 }

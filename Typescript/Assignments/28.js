@@ -1,5 +1,6 @@
+"use strict";
 // Stages of Life: Write an if-else chain that determines a person’s stage of life. Set a value for the variable age, and then:
-var age = 5;
+const age = 5;
 // • If the person is less than 2 years old, print a message that the person is a baby.
 if (age <= 2) {
     console.log("person is a baby");
