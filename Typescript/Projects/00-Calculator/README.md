@@ -31,6 +31,6 @@ You can perform multiple calculations in a row. After each calculation, you will
 - Inquirer
 - Chalk
 
- ## Note
+ ## Note / Request
  
- Please dont copy this "as it is" for your own assignments submissions. 
+ Please dont copy this "as it is" for your own assignments submissions.

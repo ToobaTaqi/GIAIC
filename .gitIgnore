@@ -1,0 +1,11 @@
+Material Provided.xlsx
+
+**/*.js
+
+**/node_modules/
+
+**/tsconfig.json/
+
+**/package.json/
+
+**/package-lock.json/
