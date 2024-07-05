@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import inquirer from "inquirer";
 import chalk from "chalk";
 
@@ -9,6 +11,7 @@ const user: { id: string; pin: number; balance: number } = {
 // console.log(user.balance);
 
 console.log(chalk.bgCyan("Hi, This is your ATM Machine!!"));
+console.log(chalk.italic.gray('Example: use ID="tooba" and pin="1234'))
 
 const login = await inquirer.prompt([
   { type: "input", name: "userID", message: "Enter Your ID : " },
