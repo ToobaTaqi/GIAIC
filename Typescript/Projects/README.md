@@ -36,6 +36,7 @@ and "package.json" file should look like below (which shows which dependencies m
 }
 
 ## steps to set up each project folder
+
 start package.json: npm init -y
 
 install typescript: npm install typescript --save-dev
