@@ -1,10 +1,10 @@
-## Task Given
-The user will enter a english paragraph and all that is needed is to just to implement counting characters and words without whitespaces.
+## Task given
+The app will show the students multiple choice questions and promt the user to reply. In the end it will show the students the result of the quiz.
 
 Create a GitHub repository for the project and submit its URL in the project submission form.
 
-## Word Counter
-This is a word counter application built with TypeScript, `inquirer`, and `chalk`. It allows a user to count the words and characters user entered in the input.
+## Quiz System
+This is a quiz application built with TypeScript, `inquirer`, and `chalk`. It allows a user to take a quiz and see its score in the end
 
 ## Getting Started
 
