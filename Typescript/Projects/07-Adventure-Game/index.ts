@@ -17,7 +17,7 @@ let healthPotionDropChance: number = 50; // Percentage
 
 let running: boolean = true;
 
-console.log(chalk.yellow("Welcome to the Dungeon!\n"));
+console.log(chalk.yellow("Welcome to the Adventure game!\n"));
 
 async function main() {
   while (running) {
@@ -96,7 +96,7 @@ async function main() {
     }
 
     if (health < 1) {
-      console.log(chalk.red("You limp out of the dungeon, weak from battle."));
+      console.log(chalk.red("You limp out of the game, weak from battle."));
       break;
     }
 
@@ -120,7 +120,7 @@ async function main() {
         message: "What would you like to do now?",
         choices: [
           { name: "Continue fighting", value: "continue" },
-          { name: "Exit dungeon", value: "exit" },
+          { name: "Exit game", value: "exit" },
         ],
       },
     ]);
@@ -129,7 +129,7 @@ async function main() {
       console.log(chalk.green("You continue on your adventure!\n"));
     } else if (response.action === "exit") {
       console.log(
-        chalk.yellow("You exit the dungeon, successful from your adventures!\n")
+        chalk.yellow("You exit the Adventure game, successful from your adventures!\n")
       );
       break;
     }

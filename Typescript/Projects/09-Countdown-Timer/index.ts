@@ -1,12 +1,15 @@
+#! /usr/bin/env node
+
 import inquirer from "inquirer";
 import chalk from "chalk";
 
 const date = await inquirer.prompt({
   name: "Date",
-  message: "Enter date to start countdown",
+  message:
+    "Enter date to start countdown " + chalk.gray.italic("Try 2024-12-31"),
   type: "input",
 });
-
+// console.log(chalk.gray.italic('Try 2024-12-31'))
 function countdownTimer(targetDate: Date): void {
   const interval = setInterval(() => {
     const currentDate = new Date();

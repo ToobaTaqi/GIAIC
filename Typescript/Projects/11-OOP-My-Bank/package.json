@@ -1,6 +1,6 @@
 {
-  "name": "11-oop-my-bank",
-  "version": "1.0.0",
+  "name": "toobtq-11-oop-my-bank",
+  "version": "1.0.1",
   "main": "index.js",
   "type": "module",
   "bin": "index.js",

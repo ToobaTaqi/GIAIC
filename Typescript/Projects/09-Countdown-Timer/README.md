@@ -1,10 +1,10 @@
-## Task Given
-The user will enter a english paragraph and all that is needed is to just to implement counting characters and words without whitespaces.
+## Task given
+In this project, you will build a countdown timer using the date module.
 
 Create a GitHub repository for the project and submit its URL in the project submission form.
 
-## Word Counter
-This is a word counter application built with TypeScript, `inquirer`, and `chalk`. It allows a user to count the words and characters user entered in the input.
+## Countdown Timer
+This is a Countdown timer application built with TypeScript, `inquirer`, and `chalk`. It allows a user to enter a specific date and then start a timer till the countdown is over.
 
 ## Getting Started
 

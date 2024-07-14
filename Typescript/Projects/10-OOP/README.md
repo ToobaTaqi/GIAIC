@@ -1,10 +1,10 @@
 ## Task Given
-The user will enter a english paragraph and all that is needed is to just to implement counting characters and words without whitespaces.
+In this project you are going to follow this video which explains object oriented programming using C# and write the same code in TypeScript.
 
 Create a GitHub repository for the project and submit its URL in the project submission form.
 
-## Word Counter
-This is a word counter application built with TypeScript, `inquirer`, and `chalk`. It allows a user to count the words and characters user entered in the input.
+## OOP
+This is a simple prediction application built with TypeScript, `inquirer`, and `chalk`. It allows a user to know their personality type according to their choices
 
 ## Getting Started
 
