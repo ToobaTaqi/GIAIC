@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/animation.css" />
+    <link rel="stylesheet" href="./styles/resume.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Resume Builder</h1>
+      <dotlottie-player
+        class="animation"
+        src="https://lottie.host/12d8948a-b8d7-481c-8642-d167eb9b6eb9/gkj96wsCBj.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+      ></dotlottie-player>
+    </header>
+
+    <main>
+      <form>
+        <div class="box">
+          <h3>Personal Info</h3>
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Name..." />
+          </div>
+          <div class="field">
+            <label for="avatar">Picture</label>
+            <input
+              type="file"
+              accept=".png, .jpeg, .jpg"
+              name="avatar"
+              id="avatar"
+              placeholder="avatar..."
+            />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="abc@xyz.com"
+            />
+          </div>
+          <div class="field">
+            <label for="phNo">Phone Number</label>
+            <input
+              type="text"
+              name="phNo"
+              id="phNo"
+              placeholder="+92**********"
+            />
+          </div>
+          <div class="btnField">
+            <button>Save</button>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>Education</h3>
+
+          <div class="field">
+            <label for="qualification">Qualification</label>
+            <input
+              type="text"
+              name="qualification"
+              id="qualification"
+              placeholder="BSCS / BCom..."
+            />
+          </div>
+
+          <div class="field">
+            <label for="institute">Institute</label>
+            <input
+              type="text"
+              name="institute"
+              id="institute"
+              placeholder="Institute Name..."
+            />
+          </div>
+
+          <div class="field">
+            <label for="skill">Year</label>
+            <input type="text" name="skill" id="skill" placeholder="2024..." />
+          </div>
+
+          <div class="btnField">
+            <button>Add New Education</button>
+            <button>Save</button>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>Skills</h3>
+
+          <div class="field">
+            <label for="skill">Skill</label>
+            <input
+              type="text"
+              name="skill"
+              id="skill"
+              placeholder="React.js / TypeScript ..."
+            />
+          </div>
+
+          <div class="btnField">
+            <button>Add New Skill</button>
+            <button>Save</button>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>Work Experience</h3>
+
+          <div class="field">
+            <label for="company">Company Name</label>
+            <input
+              type="text"
+              name="company"
+              id="company"
+              placeholder="BSCS / BCom..."
+            />
+          </div>
+
+          <div class="field">
+            <label for="institute">Position</label>
+            <input
+              type="text"
+              name="institute"
+              id="institute"
+              placeholder="Jr. Frontend Developer..."
+            />
+          </div>
+
+          <div class="field">
+            <label for="skill">Year</label>
+            <input
+              type="text"
+              name="skill"
+              id="skill"
+              placeholder="2022 - 2023..."
+            />
+          </div>
+
+          <div class="btnField">
+            <button>Add New Education</button>
+            <button>Save</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="Resume">
+        <h2>Your Resume</h2>
+
+        <h3>Personal Info</h3>
+      </div>
+    </main>
+
+    <footer>
+      <div class="line"></div>
+      <small> Designed and Developed by </small>
+      <small>Tooba Taqi</small>
+    </footer>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+  <!-- lottie animation script -->
+  <script
+    src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+    type="module"
+  ></script>
+</html>

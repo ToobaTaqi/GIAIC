@@ -1,0 +1,130 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  width: 100%;
+
+  /* scroll-behavior: smooth; */
+  /* height: 100%; */
+}
+
+body {
+  /* height: 100%; */
+  background-color: #1e3a8a;
+  color: white;
+  font-family: "Arial Narrow Bold", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  max-width: 98vw;
+  padding: 0%;
+  overflow-x: hidden;
+}
+
+.line {
+  height: 1px;
+  background-color: #bfdbfe;
+  width: 70vw;
+}
+form {
+  height: 100%;
+  gap: 2vh;
+}
+.box {
+  border: 1px solid #bfdbfe;
+  padding: 2vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+  width: 70vw;
+  margin-bottom: 10px;
+  height: 100%;
+}
+.box h3 {
+  text-align: center;
+}
+.field {
+  /* border: 1px solid red; */
+  border-radius: 5px;
+  padding: 1vh;
+  width: 50vw;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+}
+.field label {
+  width: 20vw;
+}
+input {
+  padding: 1vh;
+  padding-left: 2vw;
+  border: #1e3a8a;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.btnField {
+  width: 50vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.btnField button {
+  padding: 1vh;
+  color: #1e3a8a;
+  border-radius: 3px;
+  border: none;
+  background-color: #60a5fa;
+  width: 150px;
+}
+.btnField button:hover {
+  background-color: #bfdbfe;
+}
+
+/* scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:#1E3A8A;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #60A5FA;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #BFDBFE;
+}
+
+
+/* 
+Primary: #1E3A8A
+Secondary: #60A5FA
+Tertiary: #BFDBFE
+Text Color: #FFFFFF (White) 
+*/
