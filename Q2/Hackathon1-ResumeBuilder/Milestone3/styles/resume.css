@@ -73,3 +73,14 @@
   justify-content: center;
   align-items: center;
 }
+
+#Resume .child{
+  display: flex;
+  /* background-color: red; */
+}
+
+#Resume #img{
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+}
