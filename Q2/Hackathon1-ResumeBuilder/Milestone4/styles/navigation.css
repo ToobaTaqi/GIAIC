@@ -1,0 +1,28 @@
+#navigation {
+  position: fixed;
+  top: 15px;
+  right: 0;
+  padding-inline: 0;
+  margin-inline: 0;
+  /* width: 50vw; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  z-index: 1;
+}
+
+#navigation .line {
+  width: 20vw;
+  margin-inline: 0%;
+}
+
+.navIcons {
+  padding: 5px;
+}
+
+.navIcons:hover {
+  /* transform: scale(1.2); */
+  background-color: #60a5fa;
+  border-radius: 5px;
+}

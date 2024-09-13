@@ -1,0 +1,13 @@
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* position: fixed; */
+  /* bottom: 10px; */
+  margin-bottom: 2vh;
+  opacity: 0.5;
+  color: #BFDBFE;
+  gap: 10px;
+
+}
