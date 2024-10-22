@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Checkout from "../checkout/page";
 
 interface CartItem {
   pizza: string;
@@ -15,6 +14,8 @@ const Pizzas = () => {
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [count, setCount] = useState<number>(0);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [address, setAddress] = useState<string>("");
+  const [orderConfirmed, setOrderConfirmed] = useState<boolean>(false);
 
   const handlePizzaSelect = (pizza: string) => {
     setSelectedPizza(pizza);
@@ -55,6 +56,19 @@ const Pizzas = () => {
     }
   };
 
+  const handleConfirmOrder = () => {
+    if (address.trim() === "") {
+      alert("Please enter your address.");
+      return;
+    }
+    setOrderConfirmed(true);
+  };
+
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   return (
     <div className="flex justify-between m-3">
       <div>
@@ -65,7 +79,7 @@ const Pizzas = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-3 items-center justify-center">
+      <div className="flex flex-col gap-3 items-center justify-center m-3">
         <div className="flex flex-wrap gap-2 justify-center">
           <button onClick={() => handlePizzaSelect("Classic")}>Classic</button>
           <button onClick={() => handlePizzaSelect("Pepperoni")}>
@@ -102,7 +116,44 @@ const Pizzas = () => {
           <button onClick={handleAddToCart}>Add to cart</button>
         </div>
 
-        <Checkout cartItems={cartItems} />
+        {cartItems.length > 0 && (
+          <div className="mt-4">
+            <h3 className="font-bold">Cart Items:</h3>
+            {cartItems.map((item, index) => (
+              <p key={index}>
+                {item.quantity} x {item.size} {item.pizza} - {item.price} PKR each
+              </p>
+            ))}
+            <p className="mt-4 font-bold">Total Price: {totalPrice} PKR</p>
+
+            <div className="mt-4">
+              <label htmlFor="address" className="block font-semibold mb-2">
+                Address:
+              </label>
+              <input
+                type="text"
+                id="address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Enter your delivery address"
+                className="border p-2 rounded w-full"
+              />
+            </div>
+
+            <button
+              onClick={handleConfirmOrder}
+              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Confirm Order
+            </button>
+
+            {orderConfirmed && (
+              <div className="mt-4 text-green-500 font-bold">
+                Your order is confirmed!
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
