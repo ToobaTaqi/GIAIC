@@ -13,7 +13,7 @@ interface CheckoutProps {
   cartItems?: CartItem[];
 }
 
-const Checkout: React.FC<CheckoutProps> = ({ cartItems = [] }) => {
+const Checkout = ({ cartItems = [] }: { cartItems: CartItem[] }) => {
   const [address, setAddress] = useState<string>("");
   const [orderConfirmed, setOrderConfirmed] = useState<boolean>(false);
 

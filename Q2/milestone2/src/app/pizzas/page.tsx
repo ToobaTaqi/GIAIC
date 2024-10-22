@@ -34,7 +34,6 @@ const Pizzas = () => {
 
   const handleAddToCart = () => {
     if (selectedPizza && selectedSize && count > 0) {
-      // Set price based on size
       let price = 0;
       if (selectedSize === "Small") price = 450;
       else if (selectedSize === "Medium") price = 700;

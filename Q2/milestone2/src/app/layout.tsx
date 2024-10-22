@@ -20,9 +20,9 @@ export default function RootLayout({
               <Link href="/">Pizza Party</Link>
             </h1>
             <div className="flex gap-3 justify-center items-center">
+              <Link href="/">Home</Link>
               <Link href="/pizzas">Pizzas</Link>
-              <Link href="/drinks">Drinks</Link>
-              <Link href="/checkout">Checkout</Link>
+          
             </div>
           </nav>
         </header>
