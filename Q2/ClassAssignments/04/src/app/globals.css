@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0%;
+  padding: 0%;
+}
+body {
+  color: #20243d;
+  background: #cfa6a61c;
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 38px;
+  font-weight: 900;
+}
+h2 {
+  font-size: 25px;
+  font-weight: 750;
+}
+button {
+  background: #f48585;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-inline: 25px;
+  filter: drop-shadow(-2px 4px 3px #b1acac);
+  width: fit-content;
+  border-radius: 2px;
+}
+.home {
+  filter: drop-shadow(-5px 7px 1px #c2bebe);
+}
+.heading{
+  font-weight: 600;
+}
+.icon{
+  width: 30px;
+}
