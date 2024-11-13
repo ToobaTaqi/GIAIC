@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,html{
+    background-color: #af8a7a;
+    max-width: 100%;
+
+}
