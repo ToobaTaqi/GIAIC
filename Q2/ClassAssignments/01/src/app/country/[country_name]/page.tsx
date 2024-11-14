@@ -6,6 +6,7 @@ export default function CountryDetails({
 }: {
   params: { country_name: string };
 }) {
+
   let country = params.country_name;
 
   return (
