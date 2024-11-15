@@ -6,11 +6,11 @@ import Rectangle34 from "../../public/Rectangle34.png";
 
 function Featured() {
   return (
-    <div className="flex flex-col justify-center gap-10  pl-56">
+    <div className="flex flex-col justify-center gap-10 pt-12 pl-64 pb-14">
       <div>
-        <p className="heading text-xl">Featured Works</p>
+        <p className="font-semibold text-xl">Featured Works</p>
       </div>
-      <div className="flex flex-col w-[70%] gap-24">
+      <div className="flex flex-col w-[80%] gap-32">
         <Works
           image={Rectangle30}
           heading="Designing Dashboards"
