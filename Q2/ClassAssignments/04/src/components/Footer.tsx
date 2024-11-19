@@ -7,7 +7,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <div className="flex flex-col justify-center items-center gap-10 p-20 pt-32">
+    <section className="w-[1440px] flex flex-col justify-center items-center gap-10 p-20 pt-32">
       <div className="flex gap-10">
         <Image src={facebook} alt="" className="icon"/>
         <Image src={instagram} alt="" className="icon"/>
@@ -17,7 +17,7 @@ function Footer() {
       <div>
         <p className="heading text-xl">Copyright c 2020 All Rights Reserved</p>
       </div>
-    </div>
+    </section>
   );
 }
 

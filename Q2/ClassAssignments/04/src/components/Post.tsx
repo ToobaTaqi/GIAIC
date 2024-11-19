@@ -3,8 +3,8 @@ import Recent from "./Recent";
 
 function Post() {
   return (
-    <div className="w-full bg-[#f4e1e2] flex flex-col gap-6 p-8 pb-16 ">
-      <div className="text-xl flex justify-around gap-96">
+    <section className="w-[1440px] bg-[#f4e1e2] flex flex-col gap-6 p-8 pb-16 ">
+      <div className="text-xl flex justify-around gap-80">
         <p className="font-semibold">Recent Post</p>
         <p className="text-[#f48585] font-semibold">View all</p>
       </div>
@@ -24,7 +24,7 @@ function Post() {
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus delectus nihil eius? Fugit eaque fuga ipsum adipisci, quos, quae, cum impedit magni quibusdam esse rem."
         />
       </div>
-    </div>
+    </section>
   );
 }
 

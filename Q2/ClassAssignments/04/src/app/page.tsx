@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function page() {
   return (
-    <div className="flex flex-col gap-9">
+    <div className="flex flex-col justify-center items-center gap-9">
       <Navbar />
       <Home />
       <Post />

@@ -5,7 +5,7 @@ import home from "../../public/home.png";
 
 function Home() {
   return (
-    <div className="flex w-fit justify-center items-center gap-8 p-5 pb-28 relative top-10">
+    <section className="flex w-[1440px] justify-center items-center gap-8 p-5 pb-28 relative top-10">
       <div className="w-[50%] flex flex-col gap-6">
         <div className="font-inter font-bold text-5xl text-[#21243D]">
           <h1>Hi, I am John,</h1>
@@ -21,7 +21,7 @@ function Home() {
       <div>
         <Image src={home} alt="" className="rounded-full home" width={250}/>
       </div>
-    </div>
+    </section>
   );
 }
 

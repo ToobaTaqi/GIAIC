@@ -6,7 +6,7 @@ import Rectangle34 from "../../public/Rectangle34.png";
 
 function Featured() {
   return (
-    <div className="flex flex-col justify-center gap-10 pt-12 pl-64 pb-14">
+    <section className="w-[1440px] flex flex-col justify-center gap-10 pt-12 pl-64 pb-14">
       <div>
         <p className="font-semibold text-xl">Featured Works</p>
       </div>
@@ -33,7 +33,7 @@ function Featured() {
           description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel architecto quis aspernatur, obcaecati enim eos quas possimus eius recusandae corporis sed accusamus perferendis. Delectus, expedita!"
         />
       </div>
-    </div>
+    </section>
   );
 }
 
