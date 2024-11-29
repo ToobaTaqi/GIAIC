@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0%;
+  padding: 0%;
+}
+body {
+  background-color: #191919;
+  color: whitesmoke;
+  /* color: rgb(103 99 172); */
+  height: 100%;
+  max-width: 98vw;
+}
+.children {
+  padding-inline: 50px;
+}
+.nav-icon {
+  font-size: 20px;
+  color: #6763ac;
+  transition: transform 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.icon{
+  font-size: x-large;
+  color: #6763ac;
+  transition: transform 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+.icon:hover{
+  transform: scale(1.2);
+}
+ /* .logo {
+  padding-inline: 40px;
+}  */
+ 
+h1 {
+  font-weight: 700;
+  font-size: large;
+  color: rgb(212 163 115);
+}
+
+h2 {
+  font-size: xx-large;
+  font-weight: 400;
+  color: rgb(103 99 172);
+}
+h3 {
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+button {
+  border: 1px solid whitesmoke;
+  width: fit-content;
+  padding: 10px;
+  padding-inline: 20px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: rgb(103 99 172);
+  color: rgb(212 163 115);
+  border: none;
+}
+
+.line {
+  /* width: 300px; */
+  height: 0.5px;
+  border-radius: 5px;
+  border: 1px solid rgb(212 163 115);
+  display: flex;
+  text-align: center;
+}
+.footerline {
+  width: 70%;
+  height: 0.5px;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255);
+  display: flex;
+  text-align: center;
+}
+.tech,
+.braces {
+  color: rgb(212 163 115);
+  font-size: larger;
+}
+.url:hover {
+  color: white;
+}
+.project:hover {
+  background-color: rgb(103 99 172);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #191919;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(103 99 172);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(212 163 115);
+}
+
+
+

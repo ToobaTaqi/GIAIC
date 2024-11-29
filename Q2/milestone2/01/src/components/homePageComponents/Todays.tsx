@@ -4,12 +4,12 @@ import ProductCard from "../mainComponents/ProductCard";
 
 function Todays() {
   return (
-    <section className="w-full flex flex-col gap-10">
+    <section className="w-full flex flex-col gap-10  ">
       <SectionHeading heading="Today's" />
 
-      <div className="flex items-center justify-between">
-        <div className="flex w-[55%] justify-between items-center">
-          <h3 className="font-bold text-4xl ">Flash Sales</h3>
+      <div className="flex items-center justify-between sm:flex-col md:flex-col md:gap-3">
+        <div className="flex w-[55%] justify-between items-center sm:flex-col md:flex-col md:gap-3">
+          <h3 className="font-bold text-4xl">Flash Sales</h3>
           <div className="flex gap-4 items-center">
             <div>
               <small>Days</small>
@@ -47,7 +47,7 @@ function Todays() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-7 mb-10">
+      <div className="flex flex-wrap gap-7 mb-10 sm:justify-center sm:gap-20 md:justify-center md:gap-24">
         {/* products */}
         <ProductCard />
         <ProductCard />
@@ -59,7 +59,6 @@ function Todays() {
           View All Products
         </button>
       </div>
-      
     </section>
   );
 }

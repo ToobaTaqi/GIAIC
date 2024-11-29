@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+.custom h2 {
+  font-weight: 700;
+}
+
+.main {
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.main h1{
+  font-size: x-large;
+  font-weight: 700;
+}
+
+/* .line{
+  height: 1px;
+  width: 50%;
+  border: 1px solid black;
+} */
+
+.navLinks {
+  background-color: red;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen {
+  
+}
+
+
+.searchdiv{
+  background: gray;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.searchdiv input{
+  /* padding: 2px; */
+  padding-left: 10px;
+  background: gray;
+  width: 210px;
+
+}
+.searchdiv input:focus{
+  border: 1px solid gray;
+}
+
+.searchIcon {
+  width: 20px;
+}

@@ -2,10 +2,11 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-10 mt-28">
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8     max-w-full w-[85%] mx-20">
+    <footer className="bg-black text-white py-10 mt-28 px-20 flex justify-center flex-col w-full ">
+      {/* <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:grid-cols-4     max-w-full w-[85%] mx-20"> */}
+      <div className="max-w-full w-[80%] flex justify-center gap-20 sm:flex-col md:flex-wrap md:justify-between">
         {/* Column 1: About Us */}
-        <div>
+        <div> 
           <h2 className="text-lg font-semibold mb-4">About Us</h2>
           <ul className="space-y-2 text-sm">
             <li>📍 123 Karachi St., ArtCity, AC 45678</li>

@@ -7,7 +7,7 @@ function Categories() {
     <section className="w-full flex flex-col gap-10">
       <SectionHeading heading="Categories" />
 
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between sm:flex-col md:flex-col">
         <h3 className="font-bold text-4xl ">Browse By Category</h3>
 
         <div className="flex">
@@ -24,7 +24,7 @@ function Categories() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-7 mb-10">
+      <div className="flex flex-wrap gap-7 mb-10 sm:justify-center md:justify-center md:mb-0">
         <CategoruIcon />
         <CategoruIcon />
         <CategoruIcon />

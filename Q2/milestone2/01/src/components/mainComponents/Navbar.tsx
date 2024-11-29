@@ -3,11 +3,11 @@ import React from "react";
 
 function Navbar() {
   return (
-    <div className="flex justify-between items-center p-5 my-10  border-b-2 max-w-full w-[85%] mx-20">
+    <div className="flex justify-between items-center p-5 sm:px-0 md:px-0 my-10 sm:my-2 md:my-3 border-b-2 max-w-full w-[85%] md:w-full sm:w-full mx-20 sm:mx-0 md:mx-0 sm:flex-col sm:gap-3 md:flex-col md:gap-5 ">
       <Link href="/" className="text-black font-semibold text-2xl">
         Exclusive
       </Link>
-      <div className="flex font-semibold w-[30%] justify-between">
+      <div className="flex font-semibold w-[30%] justify-between sm:w-full md:w-full md:justify-around">
         <Link href="/">Home</Link>
         <Link href="">Contact</Link>
         <Link href="/home/about">About</Link>
