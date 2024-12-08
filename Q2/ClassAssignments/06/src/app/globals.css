@@ -2,66 +2,177 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  margin: 0%;
-  padding: 0%;
+/* General Styling */
+#navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  background-color: #f1f5f9; /* slate-100 */
+  border: 1px solid #e5e7eb; /* border color */
 }
 
-.custom h2 {
-  font-weight: 700;
-}
-
-.main {
-  background-color: green;
+/* Header Styling */
+#navHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
-  padding: 10px;
+  gap: 0.75rem;
 }
 
-.main h1{
-  font-size: x-large;
-  font-weight: 700;
+#navHeader h1 {
+  /* className="font-bold text-2xl px-2" */
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
 }
 
-/* .line{
-  height: 1px;
-  width: 50%;
-  border: 1px solid black;
-} */
-
-.navLinks {
-  background-color: red;
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
+#menuButton {
+  /* className="lg:hidden xl:hidden 2xl:hidden" */
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-@media screen {
-  
-}
-
-
-.searchdiv{
-  background: gray;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.searchdiv input{
-  /* padding: 2px; */
-  padding-left: 10px;
-  background: gray;
-  width: 210px;
-
-}
-.searchdiv input:focus{
-  border: 1px solid gray;
-}
-
-.searchIcon {
+#menuButton img {
   width: 20px;
+}
+
+/* Menu Styling */
+#menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#menu li {
+  list-style: none;
+}
+
+/* ------------------------------------------------------------------------------- */
+/* Small Screens (sm: max 640px) */
+@media (max-width: 640px) {
+  #navbar {
+    flex-direction: column;
+  }
+
+  #menuButton {
+    display: block;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  #menu.active {
+    display: flex;
+    position: absolute;
+    right: 0.25rem;
+    margin-top: 2.5rem;
+    flex-direction: column;
+    width: 200px;
+    background-color: #94a3b8; /* slate-400 */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+/* ------------------------------------------------------------------------------- */
+/* Medium Screens (md: 641px to 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  #navbar {
+    flex-direction: column;
+  }
+
+  #menuButton {
+    display: block;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  #menu.active {
+    display: flex;
+    position: absolute;
+    right: 0.25rem;
+    margin-top: 2.5rem;
+    flex-direction: column;
+    width: 200px;
+    background-color: #94a3b8; /* slate-400 */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+/* ------------------------------------------------------------------------------- */
+/* Large Screens (lg: 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #navbar {
+    align-items: center;
+  }
+
+  #menuButton {
+    display: block;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  #menu.active {
+    display: flex;
+    position: absolute;
+    right: 0.25rem;
+    margin-top: 2.5rem;
+    flex-direction: column;
+    width: 200px;
+    background-color: #94a3b8; /* slate-400 */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+/* ------------------------------------------------------------------------------- */
+/* Extra Large Screens (xl: 1025px to 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #navbar {
+    align-items: center;
+  }
+
+  #menuButton {
+    display: none;
+  }
+
+  #menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: inherit;
+    margin-top: 0;
+  }
+}
+
+/* ------------------------------------------------------------------------------- */
+/* 2X Large Screens (2xl: min 1281px) */
+@media (min-width: 1281px) {
+  #navbar {
+    align-items: center;
+  }
+
+  #menuButton {
+    display: none;
+  }
+
+  #menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: inherit;
+    margin-top: 0;
+  }
 }

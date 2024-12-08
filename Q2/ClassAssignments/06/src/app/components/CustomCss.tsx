@@ -1,31 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function CustomCss() {
-  const [menu, setMenu] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const menu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
-    <nav className="main">
-      <h1>Logo</h1>
-
-      <div className="ham">Hamlogo</div>
-      <div className="navLinks">
-        <p>Home</p>
-        <p>Contact</p>
-        <p>About</p>
-        <p>Signup</p>
-      </div>
-
-      <div className="searchdiv">
-        <input type="search" placeholder="What are you looking for?" />
-        <button>
+    <nav id="navbar">
+      <div id="navHeader">
+        <h1>Logo</h1>
+        <button id="menuButton" onClick={menu}>
           <img
-            src="https://img.icons8.com/ios7/512/search.png"
-            className="searchIcon"
-            alt=""
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png"
+            alt="Menu"
           />
         </button>
       </div>
+
+      <ul id="menu" className={menuOpen ? "active" : ""}>
+        <li>Home</li>
+        <li>Contact</li>
+        <li>About</li>
+        <li>Signup</li>
+      </ul>
     </nav>
   );
 }
