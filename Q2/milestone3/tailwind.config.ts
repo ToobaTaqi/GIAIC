@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,12 +13,6 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
     },
-    screens: {
-      // sm: {max:"414px"},
-      lg: { max: "1440px" },
-      xl: { min: "1441px" },
-    },
   },
   plugins: [],
-};
-export default config;
+} satisfies Config;

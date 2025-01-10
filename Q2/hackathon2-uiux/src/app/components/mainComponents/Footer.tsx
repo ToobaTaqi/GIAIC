@@ -19,7 +19,7 @@ export default function Footer() {
       </div>
 
       {/* footer body */}
-      <div className="grid grid-cols-1 px-10 py-14 gap-3">
+      <div className="grid grid-cols-1 px-10 py-14 gap-4">
         <FooterGridContent
           heading="Company Info"
           p1="About Us"
@@ -71,6 +71,12 @@ export default function Footer() {
             <small className="text-gray-500">Lore imp sum dolor Amit</small>
           </div>
         </div>
+      </div>
+      
+      {/* footer bottom */}
+      <div className="flex flex-col justify-center items-center font-semibold text-gray-500 p-5">
+        <h3>Made With Love By</h3>
+        <h3>Finland All Right Reserved</h3>
       </div>
     </footer>
   );

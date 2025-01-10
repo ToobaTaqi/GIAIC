@@ -33,7 +33,7 @@ export default function Navbar() {
       </div>
       {/* navigation links */}
 
-      <nav className={menuOpen?`flex flex-col text-xl text-gray-500 font-semibold justify-center items-center py-10 gap-5`:"hidden"}>
+      <nav className={menuOpen?`flex flex-col text-xl text-gray-500 font-semibold justify-center items-center py-14 gap-5`:"hidden"}>
         <Link href="/">Home</Link>
         <Link href="/">Product</Link>
         <Link href="/">Pricing</Link>
