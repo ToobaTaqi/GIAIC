@@ -14,7 +14,7 @@ export default function Team() {
         height={100}
         className="w-[307px] h-[316px]"
       />
-      <div className="flex flex-col w-[60vw] text-center pt-[75px] py-[45px]">
+      <div className="flex flex-col w-[60vw] text-center pt-[75px] py-[45px] gap-[10px]">
         <h3 className=" text-[#252B42] text-4xl font-bold">Meet Our Team</h3>
         <p className="text-sm text-[#737373]">
           Problems trying to resolve the conflict between the two major realms

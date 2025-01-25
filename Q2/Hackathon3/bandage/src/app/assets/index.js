@@ -25,11 +25,13 @@ export const NavbarDesktop = {
 import hero from "../assets/hero.png";
 import aboutgirl from "../assets/aboutgirl.png";
 import videoCard from "../assets/Video card.png";
+import contactBanner from "../assets/contactBanner.png";
 
 export const globalImages = {
   hero,
   aboutgirl,
   videoCard,
+  contactBanner,
 };
 
 // export default hero;
@@ -95,6 +97,13 @@ import instagramteam from "../assets/icons/instagramteam.png";
 import twitterteam from "../assets/icons/twitterteam.png";
 import formCheckInp from "../assets/icons/form-check-input.png";
 import check from "../assets/icons/check.png";
+import instagramTrial from "../assets/icons/instagramTrial.png";
+import facebookTrial from "../assets/icons/facebookTrial.png";
+import linkedinTrial from "../assets/icons/linkedinTrial.png";
+import contactIcon1 from "../assets/icons/contactIcon1.png";
+import contactIcon2 from "../assets/icons/contactIcon2.png";
+import contactIcon3 from "../assets/icons/contactIcon3.png";
+import contactIcon4 from "../assets/icons/ContactIcon4.png";
 
 export const icons = {
   clock,
@@ -111,6 +120,13 @@ export const icons = {
   twitterteam,
   formCheckInp,
   check,
+  instagramTrial,
+  facebookTrial,
+  linkedinTrial,
+  contactIcon1,
+  contactIcon2,
+  contactIcon3,
+  contactIcon4,
 };
 
 import facebook from "../assets/Footer/facebook.png";
@@ -142,9 +158,19 @@ export const brands = {
 import team1 from "../assets/team/1.png";
 import team2 from "../assets/team/2.jpg";
 import team3 from "../assets/team/3.png";
+import teamBanner1 from "../assets/team/teamBanner1.png";
+import teamBanner2 from "../assets/team/teamBanner2.png";
+import teamBanner3 from "../assets/team/teamBanner3.png";
+import teamBanner4 from "../assets/team/teamBanner4.png";
+import teamBanner5 from "../assets/team/teamBanner5.png";
 
 export const team = {
   team1,
   team2,
   team3,
+  teamBanner1,
+  teamBanner2,
+  teamBanner3,
+  teamBanner4,
+  teamBanner5,
 };

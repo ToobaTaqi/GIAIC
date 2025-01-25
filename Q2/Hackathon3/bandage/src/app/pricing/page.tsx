@@ -3,6 +3,7 @@ import Header from "../components/pricingPage/Header";
 import Pricing from "../components/pricingPage/Pricing";
 import Partners from "../components/globalComponents/Partners";
 import FAQs from "../components/pricingPage/FAQs";
+import FreeTrial from "../components/pricingPage/FreeTrial";
 
 export default function page() {
   return (
@@ -16,6 +17,7 @@ export default function page() {
         <Partners />
       </div>
       <FAQs />
+      <FreeTrial />
     </div>
   );
 }

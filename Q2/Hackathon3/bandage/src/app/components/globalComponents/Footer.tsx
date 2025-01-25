@@ -79,7 +79,7 @@ export default function Footer() {
       {/* bottom of footer */}
       <div className="text-[#737373] font-bold text-sm bg-[#FAFAFA] flex flex-col gap-1 text-center py-7">
         <p>Made With Love By </p>
-        <p>Finland All Right Reserved </p>
+        <p>Tooba All Right Reserved </p>
       </div>
     </footer>
   );
