@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-     <body className="max-w-[1440px] mx-auto text-[#252B42] ]">
+     <body className="  text-[#252B42] ]">
         <header>
           <NotificationBar />
           <Navbar />

@@ -14,7 +14,7 @@ export default function Partners() {
   // console.log("brands------", brand);
 
   return (
-    <section className="flex flex-col w-[80vw] mx-auto justify-center items-center gap-[60px] py-[50px]">
+    <section className="flex flex-col w-[80vw] lg:flex-row lg:w-[73px]  mx-auto justify-center  items-center gap-[60px] py-[50px]">
       {brand.map((b) => (
         <Image src={b.src} alt="" width={100} height={100} />
       ))}

@@ -1,139 +1,210 @@
-import Image from 'next/image'
-import React from 'react'
-import { icons } from '@/app/assets';
-
-
-// import heart from "@/images/Vector (15).png";
-// import cart from "@/images/icn favorite.png";
-// import eye from "@/images/icn favorite (1).png";
-import arrow from "@/images/Vector (13).png";
-import home from "@/images/unsplash_QANOF9iJlFs.png";
-
-import mainImage from "@/images/single-product-1-cover-2.jpg"; // Replace with your main image
-import image1 from "@/images/single-product-1-thumb-1.jpg"; // Replace with your thumbnail images
-import image2 from "@/images/single-product-1-thumb-2.jpg";
-import p1 from "@/images/product-cover-5 (20).png";
-import p2 from "@/images/product-cover-5 (21).png";
-import p3 from "@/images/product-cover-5 (22).png";
-import p4 from "@/images/product-cover-5 (23).png";
-import p5 from "@/images/product-cover-5 (24).png";
-import p6 from "@/images/product-cover-5 (26).png";
-
-
+"use client";
+import React, { useEffect, useState } from "react";
+import { icons, Products } from "@/app/assets";
+import Image from "next/image";
+import { useParams } from "next/navigation";
 
 export default function TheProduct() {
+  type ProductType = {
+    _id: string;
+    title: string;
+    _updatedAt: string;
+    productImage: {
+      asset: {
+        _id: string;
+        url: string;
+      };
+    };
+    price: number;
+    dicountPercentage: number;
+    category: { title: string; _id: string };
+    bestseller: boolean;
+    isNew: boolean;
+    description: string;
+    tags: string[];
+  };
+  const [product, setProduct] = useState<ProductType>();
+  // { params }: { params: { id: string } }
+
+  const params = useParams();
+  const productId = params.id;
+
+  // console.log("Product ID:", productId);
+
+  useEffect(() => {
+    async function fetchProduct() {
+      const response = await fetch(`/api/product`).then((response) =>
+        response.json()
+      );
+      // console.log(response, "response----");
+
+      const Product = response.find(
+        (p: any) => String(p._id) === String(productId)
+      );
+      // const foundProduct = response.find((p: any) => p.id === productId);
+      // console.log(Product, "foudProd");
+      setProduct(Product);
+    }
+
+    fetchProduct();
+  }, []);
+  //--------------
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const images: string[] | any[] = [
+    product?.productImage?.asset?.url,
+    // "https://upload.wikimedia.org/wikipedia/commons/b/bc/Information_example_page_300px.jpg"
+    product?.productImage?.asset?.url,
+  ];
+
+  const prev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const next = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
   return (
-    <div className="container relative mx-auto px-4 py-12 flex flex-col md:flex-row gap-8 font-Montserrat">
-    {/* Image Slider */}
-    <div className="flex-1">
-      <div className="relative">
-        <Image
-          src={mainImage}
-          alt="Product Image"
-          className="rounded-lg"
-          width={600}
-          height={400}
-        />
-        {/* Arrows */}
-      <button><Image src={icons.arrow_next} alt=''/></button>
-      <button></button>
-
-
-
-      </div>
-      {/* Thumbnails */}
-      <div className="flex mt-4 gap-4">
-        <Image
-          src={image1}
-          alt="Thumbnail 1"
-          className="rounded-md cursor-pointer hover:ring-2 hover:ring-blue-500"
-          width={100}
-          height={100}
-        />
-        <Image
-          src={image2}
-          alt="Thumbnail 2"
-          className="rounded-md cursor-pointer hover:ring-2 hover:ring-blue-500"
-          width={100}
-          height={100}
-        />
-      </div>
-    </div>
-
-    {/* Right Section - Product Details */}
-    <div className="flex-1">
-      {/* Product Title and Rating */}
-      <h1 className="text-2xl font-semibold text-gray-800">
-        Floating Phone
-      </h1>
-      <div className="flex items-center mt-2">
-        <span className="flex items-center text-yellow-400">
-          {[...Array(4)].map((_, i) => (
-            <svg
-              key={i}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              className="h-5 w-5"
-            >
-              <path d="M12 .587l3.668 7.455 8.18 1.19-5.914 5.763 1.396 8.137L12 18.897l-7.33 3.855 1.396-8.137L.152 9.232l8.18-1.19L12 .587z" />
-            </svg>
-          ))}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            className="h-5 w-5 text-gray-300"
-          >
-            <path d="M12 .587l3.668 7.455 8.18 1.19-5.914 5.763 1.396 8.137L12 18.897l-7.33 3.855 1.396-8.137L.152 9.232l8.18-1.19L12 .587z" />
-          </svg>
-        </span>
-        <p className="ml-2 text-sm text-gray-500">(10 Reviews)</p>
-      </div>
-
-      {/* Price and Availability */}
-      <p className="text-xl font-Montserrat font-semibold text-black mt-4">
-        $1,139.33
-      </p>
-      <p className="text-sm text-gray-500 mt-2">
-        Availability:{" "}
-        <span className="text-[#23A6F0] font-medium">In Stock</span>
-      </p>
-
-      {/* Description */}
-      <p className="text-gray-700 mt-4">
-        Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
-        RELIT official consequent door ENIM RELIT Mollie. Excitation venial
-        consequent sent nostrum met.
-      </p>
-
-      {/* Color Options */}
-      <div className="mt-6">
-        <h3 className="text-sm font-semibold text-gray-700">Color:</h3>
-        <div className="flex items-center gap-2 mt-2">
-          <span className="h-6 w-6 rounded-full bg-blue-500 border border-gray-300 cursor-pointer"></span>
-          <span className="h-6 w-6 rounded-full bg-green-500 border border-gray-300 cursor-pointer"></span>
-          <span className="h-6 w-6 rounded-full bg-orange-500 border border-gray-300 cursor-pointer"></span>
-          <span className="h-6 w-6 rounded-full bg-black border border-gray-300 cursor-pointer"></span>
-        </div>
-      </div>
-
-      {/* Buttons */}
-      <div className="mt-6 flex items-center gap-4">
-        <button className="px-6 py-2 bg-[#23A6F0] text-white rounded-md hover:bg-blue-600">
-          Select Options
-        </button>
-        <div className="flex items-center gap-4">
+    <section className="w-[85vw] lg:w-[73vw] mx-auto py-[48px] flex flex-col lg:flex-row gap-[30px] ">
+      <div className="flex flex-col gap-[30px] lg:w-[510px] lg:h-[546px]">
+        <div className=" relative ">
+          {/* crousel */}
           <Image
-            src={icons.heart2}
-            alt="heart"
-            className="w-6 h-6 cursor-pointer"
+            src={
+              images[currentIndex] ||
+              "https://cdn.sanity.io/images/oywqmg2v/production/2219cafc285ec13a2ed3f88aa36cbea852a11735-305x375.png"
+            }
+            alt=""
+            width={100}
+            height={100}
+            className={`w-[348px] h-[277px] lg:w-[510px] lg:h-[450px] mx-auto object-cover ${currentIndex === 1 ? "object-fill" : "object-cover"}`}
           />
-          <Image src={icons.cart2} alt="cart" className="w-6 h-6 cursor-pointer" />
-          <Image src={icons.eye} alt="eye" className="w-6 h-6 cursor-pointer" />
+
+          <div className="flex justify-between">
+            <button onClick={prev}>
+              <Image
+                src={icons.crouselPrev}
+                alt=""
+                width={100}
+                height={100}
+                className=" w-[24px] absolute left-[40px] top-[118px] lg:top-[258px]"
+              />
+            </button>
+            <button onClick={next}>
+              <Image
+                src={icons.crouselNext}
+                alt=""
+                width={100}
+                height={100}
+                className=" w-[24px] absolute right-[40px] top-[118px] lg:top-[258px]"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div className="flex gap-[15px] py-[15px]">
+          <Image
+            src={images[0]}
+            alt=""
+            width={100}
+            height={100}
+            className={`w-[100px] h-[75px] object-cover ${currentIndex === 0 ? "opacity-100" : "opacity-40"}`}
+          />
+          <Image
+            src={images[1]}
+            alt=""
+            width={100}
+            height={100}
+            className={`w-[100px] h-[75px] object-cover ${currentIndex === 1 ? "opacity-100" : "opacity-40"}`}
+          />
         </div>
       </div>
-    </div>
-  </div>
-  )
+
+      <div className="w-[full] lg:w-[510px]  px-[24px] flex flex-col gap-[20px]">
+        {/* other content */}
+        <h2 className="text-xl text-[#252B42]">
+          {/* Floating Phone */}
+          {product?.title}
+          </h2>
+
+        <div className="flex gap-[10px] items-center">
+          <div className="flex gap-[6px]  ">
+            <Image src={icons.star} alt="" />
+            <Image src={icons.star} alt="" />
+            <Image src={icons.star} alt="" />
+            <Image src={icons.star} alt="" />
+            <Image src={icons.star} alt="" />
+          </div>
+          <p className="text-[#737373] text-sm font-bold">10 Reviews</p>
+        </div>
+
+        <div className="flex flex-col gap-[10px]">
+          <div className="flex gap-[10px] items-center">
+            <h3 className="text-[#858585] font-bold line-through ">
+              ${product?.price}
+              {/* $original price */}
+            </h3>
+            <h3 className="text-[#252B42] font-bold text-xl">
+              {/* $discountprice  */}
+              {/* ${product?.dicountPercentage} */}$
+              {product?.price && product?.dicountPercentage
+                ? (
+                    product.price -
+                    (product.price * product.dicountPercentage) / 100
+                  ).toFixed(2)
+                : "N/A"}
+            </h3>
+          </div>
+
+          <div className="flex gap-[5px] text-sm font-bold items-center">
+            <h4 className="text-[#737373]">Condition :</h4>
+            <p className="text-[#23A6F0]">
+              {/* In Stock  */}
+              {product?.isNew === false ? "Old" : "New"}
+            </p>
+          </div>
+        </div>
+
+        <p className="text-sm text-justify text-[#858585]">
+          {product?.description}
+        </p>
+
+        <div className="w-full h-[2px] bg-[#858585]"></div>
+
+        <div className="flex gap-[10px]">
+          <button>
+            <Image
+              src={icons.heart2}
+              alt=""
+              className="bg-white border rounded-full p-[5px] w-[30px] h-[30px] hover:bg-[#23A6F0]"
+            />
+          </button>
+          <button>
+            <Image
+              src={icons.cart2}
+              alt=""
+              className="bg-white border rounded-full p-[5px] w-[30px] h-[30px] hover:bg-[#23A6F0]"
+            />
+          </button>
+          <button>
+            <Image
+              src={icons.eye}
+              alt=""
+              className="bg-white border rounded-full p-[5px] w-[30px] h-[30px] hover:bg-[#23A6F0]"
+            />
+          </button>
+        </div>
+
+        <div className="flex text-xs ">
+          {product?.tags?.map((tag, index) => (
+            <span key={index} className="px-2 py-1 bg-gray-200 rounded">
+              {tag}
+            </span>
+          ))}
+
+          {/* <p>tags will goes here dynamically</p> */}
+        </div>
+      </div>
+    </section>
+  );
 }

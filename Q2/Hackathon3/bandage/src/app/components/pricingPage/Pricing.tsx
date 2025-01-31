@@ -13,12 +13,12 @@ export default function Pricing() {
           <h2 className="text-[#252B42] text-[40px] font-bold">Pricing</h2>
           <p className="text-[#737373] text-sm ">
             Problems trying to resolve <br className="lg:hidden" /> the conflict
-            between the two major <br className="lg:hidden" /> realms of
+            between <br className="hidden lg:block"/> the two major <br className="lg:hidden" /> realms of
             Classical physics: <br className="lg:hidden" /> Newtonian mechanics
           </p>
         </div>
 
-        <div className="flex gap-[16px] justify-between items-center">
+        <div className="flex gap-[16px] w-[330px] mx-auto justify-between items-center">
           {/* <div className="flex gap-[16px] justify-between"> */}
           <h4 className="font-bold">Monthly</h4>
           <Image
@@ -37,7 +37,7 @@ export default function Pricing() {
           {/* </div> */}
         </div>
 
-        <div className="flex flex-col gap-[48px]">
+        <div className="flex flex-col items-center gap-[48px] lg:flex-row">
           {/* cards */}
           <PricingCard plan="FREE" price="0" />
           <PricingCard plan="STANDARD" price="9.99" />

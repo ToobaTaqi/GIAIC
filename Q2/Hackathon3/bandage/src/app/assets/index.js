@@ -104,6 +104,9 @@ import contactIcon1 from "../assets/icons/contactIcon1.png";
 import contactIcon2 from "../assets/icons/contactIcon2.png";
 import contactIcon3 from "../assets/icons/contactIcon3.png";
 import contactIcon4 from "../assets/icons/ContactIcon4.png";
+import crouselNext from "../assets/icons/carousel-control-next.png";
+import crouselPrev from "../assets/icons/carousel-control-prev.png";
+import star from "../assets/icons/star.png";
 
 export const icons = {
   clock,
@@ -127,6 +130,9 @@ export const icons = {
   contactIcon2,
   contactIcon3,
   contactIcon4,
+  crouselNext,
+  crouselPrev,
+  star,
 };
 
 import facebook from "../assets/Footer/facebook.png";

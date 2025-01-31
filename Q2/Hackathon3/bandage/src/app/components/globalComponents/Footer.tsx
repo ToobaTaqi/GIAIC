@@ -4,7 +4,7 @@ import { footerIcons } from "../../assets";
 
 export default function Footer() {
   return (
-    <footer className="pt-24 flex flex-col gap-20">
+    <footer className="pt-24 lg:pt-0 flex flex-col gap-20">
       {/* footer header */}
       <div className=" bg-[#FAFAFA] pt-5">
         <div className="flex flex-col gap-[12px] w-[80vw] mx-auto py-10">

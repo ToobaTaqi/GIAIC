@@ -1,18 +1,58 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Products } from "../../assets";
 import Featured from "./Featured";
-import { client } from "@/sanity/lib/client";
 
-export default async function FeaturedProducts() {
-  const response = await client.fetch(
-    `*[_type=='product'][0..7]{title, _updatedAt,  productImage{
-      asset->{
-        _id,
-        url
+export default function FeaturedProducts() {
+  const [bestSeller, setBestSeller] = useState<
+    {
+      _id: string;
+      title: string;
+      productImage: { asset: { url: string } };
+      bestseller: boolean;
+      price: number;
+      dicountPercentage: number;
+      category: { title: string } | null;
+    }[]
+  >([]);
+
+  useEffect(() => {
+    const fetchBestSeller = async () => {
+      try {
+        const response: {
+          _id: string;
+          productImage: {
+            asset: {
+              url: string;
+            };
+          };
+          title: string;
+          bestseller: boolean;
+          price: number;
+          dicountPercentage: number;
+          category?: { title: string } | null;
+        }[] = await fetch("/api/product").then((response) => response.json());
+        // console.log("object", response);
+
+        setBestSeller(
+          response
+            .filter((item) => item.bestseller)
+            .map((item) => ({
+              ...item,
+              category: item.category?.title
+                ? item.category
+                : { title: "WOMEN" },
+            }))
+        );
+      } catch (error) {
+        console.error("Error fetching products:", error);
       }
-    }, price, dicountPercentage}`
-  );
-  console.log("p----------", response[0].dicountPercentage );
+    };
+
+    fetchBestSeller();
+  }, []);
+
+  // console.log("outerbestseller", bestSeller);
 
   return (
     <section className="min-w-[333px] w-[80vw] mx-auto py-24 flex flex-col gap-14">
@@ -28,36 +68,17 @@ export default async function FeaturedProducts() {
           between
         </p>
       </div>
-      <div className="flex flex-col gap-14">
-        {response.map(
-          (
-            product: {
-              title: string;
-              productImage: {
-                asset: {
-                  url: string;
-                };
-              };
-              price: number;
-              dicountPercentage: number;
-              _updatedAt: string;
-            },
-            index: number
-          ) => (
-            <Featured
-              key={index}
-              title={product.title}
-              // img={product.productImage?.asset?.url}
-              img={product.productImage?.asset?.url || "https://cdn.sanity.io/images/oywqmg2v/production/2219cafc285ec13a2ed3f88aa36cbea852a11735-305x375.png"}
-              updateDate={product._updatedAt}
-              price={product.price}
-              discountPrice={
-                product.price -
-                (product.price * product.dicountPercentage) / 100
-              }
-            />
-          )
-        )}
+      <div className="flex flex-col lg:flex-row lg:flex-wrap gap-[30px] lg:justify-center lg:items-center mx-auto ">
+        {bestSeller.map((item, index) => (
+          <Featured
+            key={index} href={item._id}
+            img={item.productImage?.asset.url}
+            title={item.title}
+            category={item.category?.title ?? "WOMEN"}
+            price={item.price}
+            dicountPrice={item.dicountPercentage}
+          />
+        ))}
 
         {/* <Featured img={Products.p5} title={} updateDate={} price={} discountPercentage={}/> */}
         {/* <Featured img={Products.p6} />

@@ -10,7 +10,7 @@ export default function FreeTrial() {
       </h3>
       <p className="text-[#737373] text-sm ">
         Met minim Mollie non desert Alamo est sit <br className="lg:hidden" />
-        cliquey dolor do met sent. RELIT official <br className="lg:hidden" />
+        cliquey dolor <br className="hidden lg:block"/> do met sent. RELIT official <br className="lg:hidden" />
         consequent.
       </p>
       <button className="bg-[#23A6F0] rounded px-[40px] py-[15px] w-fit text-white text-sm font-bold text-center">

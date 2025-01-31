@@ -12,7 +12,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="max-w-[1440px] mx-auto">
+    <nav className="w-full">
       {/* nav div */}
       <div className="flex justify-between items-center py-7 px-5">
         {/* logo */}
@@ -114,9 +114,11 @@ export default function Navbar() {
         } text-[#737373] text-2xl font-semibold text-center flex-col gap-7 py-16 lg:hidden`}
       >
         <Link href="/">Home</Link>
-        <Link href="/productlist">Product</Link>
+        <Link href="/productlist">All Product</Link>
         <Link href="/pricing">Pricing</Link>
+        <Link href="/pricing">Our Team</Link>
         <Link href="/contact">Contact</Link>
+        <Link href="/allcategories">All Categories</Link>
       </div>
     </nav>
   );

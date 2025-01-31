@@ -11,7 +11,7 @@ export default function PricingCard({
   price: string;
 }) {
   return (
-    <div className="bg-white hover:bg-[#252B42] hover:text-white w-[327px] flex flex-col gap-[35px] text-center border border-[#23A6F0] py-[50px] px-[40px] text-[#252B42]">
+    <div className="bg-white hover:bg-[#252B42] hover:text-white w-[327px] flex flex-col gap-[35px] text-center border rounded-xl border-[#23A6F0] py-[50px] px-[40px] text-[#252B42]">
       <h4 className=" text-2xl font-bold">{plan}</h4>
       <p className="text[#737373]">Organize across all apps by hand</p>
 

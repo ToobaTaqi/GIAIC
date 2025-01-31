@@ -13,7 +13,7 @@ export default function LocationCard({
 }) {
   return (
     <div
-      className={`bg-${bg} w-[80vw] mx-auto flex flex-col gap-[15px] py-[50px] px-[40] items-center`}
+      className={`bg-${bg} w-[328px] mx-auto flex flex-col justify-center gap-[15px] py-[50px] px-[40] items-center`}
     >
       <Image
         src={icon}

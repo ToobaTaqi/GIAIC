@@ -4,13 +4,13 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <section className="flex flex-col gap-[40px] py-[80px]">
-      {/* content */}
-      <div className="text-[#252B42] text-center w-[80vw] mx-auto flex flex-col gap-[40px] items-center">
+    <section className="flex flex-col lg:flex-row lg:w-[73vw] mx-auto gap-[40px] py-[80px] lg:justify-between lg:items-center">
+      
+      <div className="text-[#252B42] text-center lg:text-start w-[80vw] lg:w-[42vw] mx-auto flex flex-col gap-[40px] lg:items-start items-center">
         <h2 className="font-bold">CONTACT US</h2>
         <h3 className="font-bold text-[40px] ">Get in touch today!</h3>
-        <p className="text-[#737373] text-xl w-[57vw] mx-auto">
-          We know how large objects will act, but things on a small scale just
+        <p className="text-[#737373] text-xl lg:w-full w-[57vw] mx-auto">
+          We know how large objects will act,<br className="hidden lg:block"/> but things on a small scale just
           do not act that way.
         </p>
         <div className="flex flex-col gap-[20px]">
@@ -50,8 +50,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* picture */}
-      {/* <div className="bg-red-300"> */}
+    
       <Image
         src={globalImages.contactBanner}
         alt=""
@@ -59,7 +58,7 @@ export default function Header() {
         height={100}
         className="w-[387px] h-auto mx-auto"
       />
-      {/* </div> */}
+
     </section>
   );
 }

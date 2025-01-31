@@ -1,59 +1,51 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Featured from "../homepage/Featured";
-import { client } from "@/sanity/lib/client";
-
-// Define the types for the product and product image
-interface ProductImage {
-  asset: {
-    _id: string;
-    url: string;
-  };
-}
-
-interface Product {
-  title: string;
-  productImage: ProductImage | null;
-  price: number;
-  discountPercentage?: number;
-  _updatedAt: string;
-}
+import Link from "next/link";
 
 export default function ProductList() {
-  const [products, setProducts] = useState<Product[][]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(0);
-  const [currentButtonSet, setCurrentButtonSet] = useState<number>(0); // Tracks the button group
-  const chunkSize = 4; // Number of products per page
-  const buttonsPerPage = 3; // Number of page numbers visible at a time
+  type image = {
+    asset: {
+      _id: string;
+      url: String;
+    };
+  };
+  type Category = {
+    title: string;
+    _id: string;
+  };
 
-  // Fetch data inside useEffect
+  type Products = {
+    _id: string;
+    title: string;
+    _updatedAt: string;
+    productImage: image;
+    price: number;
+    dicountPercentage: number;
+    category: Category|null;
+    bestseller: boolean;
+  };
+
+  const [products, setProducts] = useState<Products[]>([]);
+  const chunkSize = 4; // Number of products per page
+  const [chunks, setChunks] = useState<Products[][]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response: Product[] = await client.fetch(
-          `*[_type=='product']{
-            title,
-            _updatedAt,
-            productImage{
-              asset->{
-                _id,
-                url
-              }
-            },
-            price,
-            discountPercentage
-          }`
-        );
+        const response = await fetch("/api/product").then((res) => res.json());
 
-        // Divide products into chunks of 3
-        const paginatedProducts: Product[][] = Array.from(
-          { length: Math.ceil(response.length / chunkSize) },
-          (_, i) => response.slice(i * chunkSize, i * chunkSize + chunkSize)
-        );
+        // Split into chunks of `chunkSize`
+        const chunkedData = [];
+        for (let i = 0; i < response.length; i += chunkSize) {
+          chunkedData.push(response.slice(i, i + chunkSize));
+        }
 
-        setProducts(paginatedProducts);
+        setProducts(response);
+        setChunks(chunkedData);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.log("Error fetching products:", error);
       }
     };
 
@@ -65,38 +57,26 @@ export default function ProductList() {
     setCurrentPage(index);
   };
 
-  // Handle next button group
-  const handleNextButtonSet = () => {
-    if ((currentButtonSet + 1) * buttonsPerPage < products.length) {
-      setCurrentButtonSet(currentButtonSet + 1);
-    }
-  };
-
-  // Handle previous button group
-  const handlePreviousButtonSet = () => {
-    if (currentButtonSet > 0) {
-      setCurrentButtonSet(currentButtonSet - 1);
-    }
-  };
-
   return (
-    <section className="py-20 flex flex-col items-center gap-[48px] w-[80vw] mx-auto">
-      <div className="flex flex-col gap-14">
-        {products[currentPage]?.map((product, index) => (
+    <section className="py-20 flex flex-col  items-center gap-[48px] w-[80vw] lg:w-[75vw]  mx-auto">
+
+      <div className="flex flex-col gap-14 lg:gap-[30px] lg:flex-row">
+        {chunks[currentPage]?.map((product: Products) => (
           <Featured
-            key={index}
+            key={product._id}
+            href={product._id}
             title={product.title}
             img={
-              product.productImage?.asset?.url ||
+              product.productImage?.asset?.url ??
               "https://cdn.sanity.io/images/oywqmg2v/production/2219cafc285ec13a2ed3f88aa36cbea852a11735-305x375.png"
             }
-            updateDate={product._updatedAt}
+            category={product.category?.title? product.category.title :"WOMEN"}
             price={product.price}
-            discountPrice={
+            dicountPrice={
               typeof product.price === "number" &&
-              typeof product.discountPercentage === "number"
+              typeof product.dicountPercentage === "number"
                 ? product.price -
-                  (product.price * product.discountPercentage) / 100
+                  (product.price * product.dicountPercentage) / 100
                 : product.price
             }
           />
@@ -104,39 +84,33 @@ export default function ProductList() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex rounded border-[#E8E8E8] gap-0 w-[313px] mt-8 shadow">
+      <div className="flex flex-wrap rounded border-[#E8E8E8] gap-0 w-auto mt-8 shadow">
         <button
-          className="text-[#BDBDBD] text-sm border-r-[1px] p-[25px]"
-          disabled={currentButtonSet === 0}
-          onClick={handlePreviousButtonSet}
+          // className="text-[#BDBDBD] text-sm border-r-[1px] p-[25px]"
+          className={`text-[#BDBDBD] text-sm border-r-[1px] p-[25px] ${currentPage === 0 ? "opacity-50 cursor-not-allowed" : "hover:text-white hover:bg-[#23A6F0]"}`}
+          disabled={currentPage === 0}
+          onClick={() => handlePageChange(currentPage - 1)}
         >
           First
         </button>
-        {products
-          .slice(
-            currentButtonSet * buttonsPerPage,
-            currentButtonSet * buttonsPerPage + buttonsPerPage
-          )
-          .map((_, index) => {
-            const actualIndex = currentButtonSet * buttonsPerPage + index;
-            return (
-              <button
-                key={actualIndex}
-                className={`${
-                  actualIndex === currentPage
-                    ? "text-white bg-[#23A6F0]"
-                    : "text-[#23A6F0] font-bold"
-                } border-r-[1px] py-[25px] px-[20px] hover:text-white hover:bg-[#23A6F0]`}
-                onClick={() => handlePageChange(actualIndex)}
-              >
-                {actualIndex + 1}
-              </button>
-            );
-          })}
+        {chunks.map((_, index) => (
+          <button
+            key={index}
+            className={`${
+              index === currentPage
+                ? "text-white bg-[#23A6F0]"
+                : "text-[#23A6F0] font-bold"
+            } border-r-[1px] py-[25px] px-[20px] hover:text-white hover:bg-[#23A6F0]`}
+            onClick={() => handlePageChange(index)}
+          >
+            {index + 1}
+          </button>
+        ))}
         <button
-          className="text-[#23A6F0] font-bold p-[25px]"
-          disabled={(currentButtonSet + 1) * buttonsPerPage >= products.length}
-          onClick={handleNextButtonSet}
+          // className="text-[#23A6F0] font-bold p-[25px]"
+          className={`text-[#23A6F0] font-bold p-[25px] ${currentPage === chunks.length - 1 ? "opacity-50 cursor-not-allowed" : "hover:text-white hover:bg-[#23A6F0]"}`}
+          disabled={currentPage === chunks.length - 1}
+          onClick={() => handlePageChange(currentPage + 1)}
         >
           Next
         </button>
@@ -144,79 +118,3 @@ export default function ProductList() {
     </section>
   );
 }
-
-// import React from 'react'
-// import Featured from '../homepage/Featured'
-// import { client } from '@/sanity/lib/client';
-
-// export default async function ProductList() {
-
-//    const response = await client.fetch(
-//       `*[_type=='product']{title, _updatedAt,  productImage{
-//         asset->{
-//           _id,
-//           url
-//         }
-//       }, price, dicountPercentage}`
-//     );
-//     console.log("shop page----------", response.length );
-//     let chunk=Math.round(response.length/3)
-
-//   return (
-//     <section className=" py-20 flex flex-col items-center gap-[48px] w-[80vw] mx-auto">
-//  <div className="flex flex-col gap-14">
-//         {response.map(
-//           (
-//             product: {
-//               title: string;
-//               productImage: {
-//                 asset: {
-//                   url: string;
-//                 };
-//               };
-//               price: number;
-//               dicountPercentage: number;
-//               _updatedAt: string;
-//             },
-//             index: number
-//           ) => (
-//             <Featured
-//               key={index}
-//               title={product.title}
-//               // img={product.productImage?.asset?.url}
-//               img={product.productImage?.asset?.url || "https://cdn.sanity.io/images/oywqmg2v/production/2219cafc285ec13a2ed3f88aa36cbea852a11735-305x375.png"}
-//               updateDate={product._updatedAt}
-//               price={product.price}
-//               discountPrice={
-//                 product.price -
-//                 (product.price * product.dicountPercentage) / 100
-//               }
-//             />
-//           )
-//         )}
-
-//       </div>
-
-//     {/* <Featured img={Products.p1} />
-//     <Featured img={Products.p2} />
-//     <Featured img={Products.p4full} />
-//     <Featured img={Products.p4full} /> */}
-
-//     <div className="flex rounded border-[#E8E8E8] gap-0 w-[313px] mt-8 shadow">
-//       <button className="text-[#BDBDBD] text-sm border-r-[1px] p-[25px]">
-//         First
-//       </button>
-//       <button className="text-[#23A6F0] font-bold border-r-[1px] py-[25px] px-[20px] hover:text-white hover:bg-[#23A6F0]">
-//         1
-//       </button>
-//       <button className="text-[#23A6F0] font-bold border-r-[1px] py-[25px] px-[20px] hover:text-white hover:bg-[#23A6F0]">
-//         2
-//       </button>
-//       <button className="text-[#23A6F0] font-bold border-r-[1px] py-[25px] px-[20px] hover:text-white hover:bg-[#23A6F0]">
-//         3
-//       </button>
-//       <button className="text-[#23A6F0] font-bold p-[25px]">Next</button>
-//     </div>
-//   </section>
-//   )
-// }

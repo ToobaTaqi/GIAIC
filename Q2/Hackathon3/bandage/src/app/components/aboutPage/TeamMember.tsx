@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function TeamMember({ img }: { img: any }) {
   return (
     <Link href="/team">
-      <section className="flex flex-col w-[316px] mx-auto items-center">
-        <Image src={img} alt="" width={100} height={100} className="w-full " />
+      <section className="flex flex-col w-[316px] h-[383px] mx-auto items-center">
+        <Image src={img} alt="" width={100} height={100} className="w-[316px] h-[231px] object-cover" />
         <div className="flex flex-col p-[30px] gap-[10px] items-center">
           <h2 className="font-bold text-[#252B42]">Username</h2>
           <p className="text-[#737373] font-bold text-sm">Profession</p>

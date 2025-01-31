@@ -4,8 +4,9 @@ import { icons } from "../../assets";
 
 export default function ShopHeader() {
   return (
-    <div className="bg-[#FAFAFA] text-center flex flex-col justify-center items-center gap-16 py-12">
-    <h1 className="text-2xl font-bold">Shop</h1>
+    <div className="bg-[#FAFAFA] ">
+   <div className='text-center flex flex-col lg:w-[73vw] mx-auto lg:flex-row lg:justify-between justify-center items-center gap-16 py-12'>
+   <h1 className="text-2xl font-bold">Shop</h1>
     <div className="flex items-center gap-[15px]">
       <p className="font-bold text-sm ">Home</p>
       <Image
@@ -15,6 +16,7 @@ export default function ShopHeader() {
       />
       <p className="text-[#737373] text-sm font-bold">Shop</p>
     </div>
+   </div>
   </div>
   )
 }
