@@ -37,7 +37,7 @@ const config: Config = {
       },
     },
     screens: {
-      lg: { min: "1300px", max: "1440px" },
+      lg: { min: "1300px", max: "3840px" },
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from "../../components/productPage/Header";
-import TheCategory from '@/app/components/allCategoriesPage/TheCategory';
+import Header from "../../../components/productPage/Header";
+import TheCategory from '../../../components/allCategoriesPage/TheCategory';
 
 export default function page() {
   return (
