@@ -20,7 +20,8 @@ export default function Navbar() {
           </Link>
           <Link href="/cart">
             <li className="hover:text-black  flex items-center gap-1 ">
-              Cart <span className="text-green-400 text-xs">2</span>
+              Cart
+              {/* <span className="text-green-400 text-xs">2</span> */}
             </li>
           </Link>
         </ul>

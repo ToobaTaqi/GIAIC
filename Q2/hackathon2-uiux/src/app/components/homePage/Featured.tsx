@@ -1,42 +1,39 @@
+// child of FeaturedProduct
 import React from "react";
-import FeaturedCard from "./FeaturedCard";
-import productCard1 from "../../assets/mobile/productCard1.png";
-import productCard2 from "../../assets/mobile/productCard2.png";
-import productCard3 from "../../assets/mobile/productCard3.png"
-import productCard4 from "../../assets/mobile/productCard4.png"
-import productCard5 from "../../assets/mobile/productCard5.png"
-import productCard67 from "../../assets/mobile/productCard67.png"
-import card1 from "../../assets/mobile/card1.png";
+import Image from "next/image";
+import Link from "next/link";
 
-
-
-export default function Featured() {
+export default function Featured({
+  img,
+  title,
+  updateDate,
+  price,
+  discountPrice,
+}: {
+  img: any;
+  title: string;
+  updateDate: string;
+  price: number;
+  discountPrice: number;
+}) {
+  // *[_type=='product']{title, _updatedAt, productImage, _rev, price,dicountPercentage   }
   return (
-    <section className="w-[80vw] mx-auto py-16 flex flex-col justify-center items-center gap-10">
-        {/* section header */}
-      <div className="flex flex-col gap-2">
-        <h1 className="text-center text-gray-500 text-lg font-semibold">
-          Featured Products
-        </h1>
-        <h2 className="w-[50%] mx-auto text-2xl text-center font-bold">
-          BESTSELLER PRODUCTS
-        </h2>
-        <p className="w-[70%] mx-auto text-center text-gray-500">
-          Problems trying to resolve the conflict between
-        </p>
+    <Link href="/product" className="flex flex-col justify-center gap-8 h-[615px] w-[328px] lg:w-[238px]">
+      <Image src={img} alt="" width={100} height={100} className=" min-h-[427px] w-[328px] lg:w-[238px] h-[427px] mx-auto object-cover"/>
+      <div className="flex flex-col justify-center items-center text-center gap-[10px]">
+        <h3 className="font-bold leading-6">{title}</h3>
+        <p className="text-[#737373] leading-6 font-bold">{updateDate}</p>
+        <div className="flex gap-2">
+          <p className="text-[#BDBDBD] font-bold leading-6">${price}</p>
+          <p className="text-[#23856D] font-bold leading-6">${discountPrice}.tofixed(2)</p>
+        </div>
+        <div className="flex gap-[6px]">
+          <div className="bg-[#23A6F0] w-[16px] h-[16px] rounded-full"></div>
+          <div className="bg-[#23856D] w-[16px] h-[16px] rounded-full"></div>
+          <div className="bg-[#E77C40] w-[16px] h-[16px] rounded-full"></div>
+          <div className="bg-[#252B42] w-[16px] h-[16px] rounded-full"></div>
+        </div>
       </div>
-
-      {/* Featured posts/cards */}
-      <div className="w-full flex flex-col gap-16">
-        <FeaturedCard url={productCard1}/>
-        <FeaturedCard url={productCard2}/>
-        <FeaturedCard url={productCard3}/>
-        <FeaturedCard url={productCard4}/>
-        <FeaturedCard url={productCard5}/>
-        <FeaturedCard url={productCard67}/>
-        <FeaturedCard url={productCard67}/>
-        <FeaturedCard url={card1}/>
-      </div>
-    </section>
+    </Link>
   );
 }
