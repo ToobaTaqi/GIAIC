@@ -50,7 +50,7 @@ def convert(value, from_unit, to_unit, category):
         return base_value * conversions[category][to_unit]
     
 # UI
-st.title("Mine")
+st.title("Unit COnverter")
 category = st.selectbox("Select Category",["Length","Weight"])
 
 units={
