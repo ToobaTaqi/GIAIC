@@ -1,0 +1,9 @@
+[
+    {
+        "title": "example1",
+        "author": "tooba",
+        "year": 2025,
+        "genre": "Sci. Fiction",
+        "read": true
+    }
+]
