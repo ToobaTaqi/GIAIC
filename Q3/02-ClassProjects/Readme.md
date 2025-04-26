@@ -7,4 +7,5 @@
 ### 03 Personal Library Manager
 - https://03-personallibrarymanagerpy.streamlit.app/
 
-### 05 
+### 05 Secure Data Encryption
+- https://05-securedataencryptionpy.streamlit.app/
