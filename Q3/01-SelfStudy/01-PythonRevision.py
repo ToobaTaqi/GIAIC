@@ -51,3 +51,14 @@ elif y==6:
     print("y is equal to 6")
 else:
     print("y is negative")
+
+
+# function
+def isPalindrome(strng):
+    rev = strng[::-1]
+    if(strng==rev):
+        print("The string is Palindrome")
+    else:
+        print("The string is not palindrome")
+
+isPalindrome("madam")
